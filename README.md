@@ -1,2 +1,2 @@
-# silverstripe-redis-queue-adapter
-Redis queue adapater module for Silverstripe
+# silverstripe-queue-adapter
+Queue adapater module for Silverstripe

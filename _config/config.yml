@@ -1,0 +1,9 @@
+After:
+  - 'framework/*'
+  - 'cms/*'
+---
+Injector:
+  QueueSerializer:
+    class:  JSONSerializer
+  QueueAdapater:
+    class:  RedisAdapter
