@@ -3,10 +3,10 @@ interface IMessage {
   /**
   * @return array
   */
-  function getData();
+  function get_data();
 
   /**
   * @return string
   */
-  function getQueue();
+  function get_topic();
 }

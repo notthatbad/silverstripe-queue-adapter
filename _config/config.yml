@@ -3,7 +3,12 @@ After:
   - 'cms/*'
 ---
 Injector:
-  QueueSerializer:
+  MessageSerializer:
     class:  JSONSerializer
   QueueAdapater:
     class:  RedisAdapter
+    constructor:
+      0:
+        host: '127.0.0.1'
+        port: 6379
+        scheme: 'tcp'

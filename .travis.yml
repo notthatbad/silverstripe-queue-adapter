@@ -25,4 +25,4 @@ before_script:
   - cd ~/builds/ss
   - composer install
 script:
-  - vendor/bin/phpunit silverstripe-redis-queue-adapter/tests/
+  - vendor/bin/phpunit silverstripe-queue-adapter/tests/

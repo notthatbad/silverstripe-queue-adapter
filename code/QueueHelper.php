@@ -1,6 +1,11 @@
 <?php
 class QueueHelper {
-  public static function getQueue() {
+
+  /**
+   * @return IQueueAdapter
+   * @throws Exception
+   */
+  public static function get_queue() {
     return Injector::inst()->create('QueueAdapater');
   }
 
@@ -9,6 +14,6 @@ class QueueHelper {
    * @throws Exception
    */
   public static function get_serializer() {
-      return Injector::inst()->create('QueueSerializer');
+      return Injector::inst()->create('MessageSerializer');
   }
 }

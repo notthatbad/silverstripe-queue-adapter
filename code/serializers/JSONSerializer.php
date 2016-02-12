@@ -1,17 +1,10 @@
 <?php
 
 /**
- * Serializer for json.
- * @author Christian Blank <c.blank@notthatbad.net>
+ * Serializer and deserializer for json.
+ * @author Eduard Malyj <eduard.malyj@gmail.com>
  */
-class JsonSerializer implements IRestSerializer {
-
-    /**
-     * The content type.
-     * @var string
-     */
-    private $contentType = "application/json";
-
+class JsonSerializer implements IMessageSerializer {
     /**
      * Serializes the given data into a json string.
      *
@@ -22,7 +15,15 @@ class JsonSerializer implements IRestSerializer {
         return json_encode($data, JSON_PRETTY_PRINT);
     }
 
-    public function contentType() {
-        return $this->contentType;
+    /**
+     * Deserializes the given json string into mixed.
+     *
+     * @param string $bytes the json string that should be deserialized
+     * @return mixed formatted data
+     */
+    public function deserialize($bytes) {
+        return json_decode($bytes);
     }
+
+
 }

@@ -1,10 +1,11 @@
 {
-    "name": "ntb/silverstripe-redis-queue-adapter",
+    "name": "ntb/silverstripe-queue-adapter",
     "description": "Add ability to queue messages into a redis queue",
     "type": "silverstripe-module",
     "keywords": [
       "silverstripe",
-      "redis"
+      "queue",
+      "pubsub"
     ],
     "require": {
         "silverstripe/framework": ">=3.1.13",
