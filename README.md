@@ -5,4 +5,4 @@ Silverstripe Queue Adapter
 [![License](https://poser.pugx.org/ntb/silverstripe-queue-adapte/license)](https://packagist.org/packages/ntb/silverstripe-queue-adapter)
 
 
-Queue adapater module for Silverstripe
+Queue adapter module for Silverstripe

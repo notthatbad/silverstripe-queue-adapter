@@ -25,13 +25,12 @@ class RedisAdapter implements IQueueAdapter{
    */
    protected $_redis = null;
 
-  /**
-   * Constructor
-   *
-   * @param array $options associative array of options
-   * @return void
-   */
-   public function __construct(array $options = array()) {
+    /**
+     * Constructor
+     *
+     * @param array $options associative array of options
+     */
+   public function __construct(array $options = []) {
       $server = array_merge($options, $this->_options);
       // Create predis object
       $this->_redis = new Predis\Client([
@@ -42,11 +41,11 @@ class RedisAdapter implements IQueueAdapter{
     }
 
     /**
-    * @param $msg mixed
+    * @param IMessage $msg
     */
     public function publish($msg) {
         $queue = $msg->get_topic();
-        $serializedData = QueueHelper::get_serializer->serialize($msg->get_data());
+        $serializedData = QueueHelper::get_serializer()->serialize($msg->get_data());
         $this->_redis->publish($queue, $serializedData);
     }
 }

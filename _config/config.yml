@@ -5,7 +5,7 @@ After:
 Injector:
   MessageSerializer:
     class:  JSONSerializer
-  QueueAdapater:
+  QueueAdapter:
     class:  RedisAdapter
     constructor:
       0:

@@ -6,11 +6,11 @@ class QueueHelper {
    * @throws Exception
    */
   public static function get_queue() {
-    return Injector::inst()->create('QueueAdapater');
+    return Injector::inst()->create('QueueAdapter');
   }
 
   /**
-   * @return IQueueSerializer
+   * @return IMessageSerializer
    * @throws Exception
    */
   public static function get_serializer() {
