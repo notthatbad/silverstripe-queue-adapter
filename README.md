@@ -11,7 +11,7 @@ Queue adapter module for Silverstripe
 You can define your messages by implementing the `IMessage` interface. To send a message you can call `publish` on an
 `IQueueAdapter`.
 
-```
+```php
 <?php
 
 $msg = new FooBarMessage("data");

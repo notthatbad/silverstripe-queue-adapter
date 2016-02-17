@@ -1,22 +1,23 @@
 {
-    "name": "ntb/silverstripe-queue-adapter",
-    "description": "Add ability to queue messages into a redis queue",
-    "type": "silverstripe-module",
-    "keywords": [
-      "silverstripe",
-      "queue",
-      "pubsub"
-    ],
-    "require": {
-        "silverstripe/framework": ">=3.1.13",
-        "php": ">=5.3.2",
-        "predis/predis": "^1.0"
-    },
-    "license": "BSD-3-Clause",
-    "authors": [
-        {
-            "name": "Eduard Malyj",
-            "email": "eduard.malyj@gmail.com"
-        }
-    ]
+  "name": "ntb/silverstripe-queue-adapter",
+  "description": "Add ability to queue messages into a redis queue",
+  "type": "silverstripe-module",
+  "keywords": [
+    "silverstripe",
+    "queue",
+    "pubsub"
+  ],
+  "require": {
+    "silverstripe/framework": ">=3.1.13",
+    "php": ">=5.3.2",
+    "predis/predis": "^1.0",
+    "mockery/mockery": "~0.9"
+  },
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Eduard Malyj",
+      "email": "eduard.malyj@gmail.com"
+    }
+  ]
 }

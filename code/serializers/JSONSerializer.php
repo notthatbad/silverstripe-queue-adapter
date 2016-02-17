@@ -19,10 +19,10 @@ class JsonSerializer implements IMessageSerializer {
      * Deserializes the given json string into mixed.
      *
      * @param string $bytes the json string that should be deserialized
-     * @return mixed formatted data
+     * @return mixed deserialized data
      */
     public function deserialize($bytes) {
-        return json_decode($bytes);
+        return json_decode($bytes, true);
     }
 
 
