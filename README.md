@@ -2,8 +2,7 @@ Silverstripe Queue Adapter
 ==========================
 
 [![Build Status](https://travis-ci.org/notthatbad/silverstripe-rest-api.svg)](https://travis-ci.org/notthatbad/silverstripe-queue-adapter)
-[![License](https://poser.pugx.org/ntb/silverstripe-queue-adapter/license)](https://packagist.org/packages/ntb/silverstripe-queue-adapter)
-
+[![License](https://poser.pugx.org/ntb/silverstripe-queue-adapter/license.svg)](https://github.com/notthatbad/silverstripe-queue-adapter/blob/master/LICENCE)
 
 Queue adapter module for Silverstripe
 
