@@ -1,5 +1,7 @@
 <?php
 
+namespace Ntb\QueueAdapter;
+
 /**
  * Provides methods for serializing data and deserializing strings.
  * @author Eduard Malyj <eduard.malyj@gmail.com>

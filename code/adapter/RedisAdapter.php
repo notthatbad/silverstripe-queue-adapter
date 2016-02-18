@@ -1,5 +1,8 @@
 <?php
 
+namespace Ntb\QueueAdapter;
+use RedisException;
+
 /**
  * Message queue adapter for redis
  * @author Eduard Malyj <eduard.malyj@gmail.com>
@@ -21,7 +24,7 @@ class RedisAdapter implements IQueueAdapter{
     /**
      * Redis object
      *
-     * @var Predis\Client redis object
+     * @var \Predis\Client redis object
      */
     protected $_redis = null;
 
@@ -33,7 +36,7 @@ class RedisAdapter implements IQueueAdapter{
     public function __construct(array $options = []) {
         $server = array_merge($options, $this->_options);
         // Create predis object
-        $this->_redis = new Predis\Client([
+        $this->_redis = new \Predis\Client([
             'scheme' => $server['scheme'],
             'host'   => $server['host'],
             'port'   => $server['port']
@@ -51,7 +54,7 @@ class RedisAdapter implements IQueueAdapter{
         try {
             $this->_redis->rpush($queue, $serializedData);
         } catch(RedisException $ex) {
-            SS_Log::log("Can't publish data into redis queue.", SS_Log::ERR);
+            \SS_Log::log("Can't publish data into redis queue.", \SS_Log::ERR);
         }
     }
 }

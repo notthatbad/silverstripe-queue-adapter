@@ -1,5 +1,7 @@
 <?php
 
+namespace Ntb\QueueAdapter;
+
 /**
  * Serializer and deserializer for json.
  * @author Eduard Malyj <eduard.malyj@gmail.com>

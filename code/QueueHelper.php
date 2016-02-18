@@ -1,5 +1,7 @@
 <?php
 
+namespace Ntb\QueueAdapter;
+
 /**
  * Factory methods for serializers and queue adapters
  */
@@ -7,17 +9,17 @@ class QueueHelper {
 
     /**
      * @return IQueueAdapter
-     * @throws Exception
+     * @throws \Exception
      */
     public static function get_queue() {
-        return Injector::inst()->create('QueueAdapter');
+        return \Injector::inst()->create('QueueAdapter');
     }
 
     /**
      * @return IMessageSerializer
-     * @throws Exception
+     * @throws \Exception
      */
     public static function get_serializer() {
-        return Injector::inst()->create('MessageSerializer');
+        return \Injector::inst()->create('MessageSerializer');
     }
 }

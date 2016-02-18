@@ -7,12 +7,12 @@ class RedisQueueTest extends SapphireTest {
     public function testInstantiationOfRedisAdapter() {
         $msg = new FooBarMessage();
         $this->mockPredis($msg);
-        $adapter = QueueHelper::get_queue();
+        $adapter = Ntb\QueueAdapter\QueueHelper::get_queue();
         $adapter->publish($msg);
     }
 
     /**
-     * @param IMessage $msg
+     * @param Ntb\QueueAdapter\IMessage $msg
      */
     private function mockPredis($msg=null) {
         $clientMock = m::mock('overload:Predis\Client');
@@ -27,7 +27,7 @@ class RedisQueueTest extends SapphireTest {
     }
 }
 
-class FooBarMessage implements TestOnly, IMessage {
+class FooBarMessage implements TestOnly, Ntb\QueueAdapter\IMessage {
 
     /**
      * @return array

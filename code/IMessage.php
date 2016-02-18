@@ -1,4 +1,7 @@
 <?php
+
+namespace Ntb\QueueAdapter;
+
 interface IMessage {
   /**
   * @return array
