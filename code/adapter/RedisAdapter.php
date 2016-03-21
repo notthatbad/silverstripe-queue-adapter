@@ -57,4 +57,24 @@ class RedisAdapter implements IQueueAdapter{
             \SS_Log::log("Can't publish data into redis queue.", \SS_Log::ERR);
         }
     }
+
+    /**
+     * @param string $queue
+     * @return mixed
+     */
+    public function read($queue) {
+        try {
+            $serializedData = $this->_redis->lpop($queue);
+            return QueueHelper::get_serializer()->deserialize($serializedData);
+        } catch(RedisException $ex) {
+            \SS_Log::log("Can't read data from redis queue.", \SS_Log::ERR);
+        }
+    }
+
+    /**
+     * @param string $queue
+     */
+    public function clear($queue) {
+        $this->_redis->del($queue);
+    }
 }

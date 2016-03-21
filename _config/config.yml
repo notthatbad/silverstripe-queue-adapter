@@ -4,9 +4,9 @@ After:
 ---
 Injector:
   MessageSerializer:
-    class:  JSONSerializer
+    class:  Ntb\QueueAdapter\JSONSerializer
   QueueAdapter:
-    class:  RedisAdapter
+    class:  Ntb\QueueAdapter\RedisAdapter
     constructor:
       0:
         host: '127.0.0.1'

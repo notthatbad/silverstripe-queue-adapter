@@ -7,8 +7,14 @@ namespace Ntb\QueueAdapter;
  * @author Eduard Malyj <eduard.malyj@gmail.com>
  */
 interface IQueueAdapter {
-  /**
-  * @param $msg mixed
-  */
-  function publish($msg);
+    /**
+     * @param IMessage $msg
+     */
+    function publish($msg);
+
+    /**
+     * @param string $queue
+     * @return mixed
+     */
+    function read($queue);
 }
