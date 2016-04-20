@@ -18,7 +18,7 @@ class RedisQueueTest extends SapphireTest {
         $clientMock = m::mock('overload:Predis\Client');
         $clientMock->shouldReceive('rpush')
             ->once()
-            ->withArgs([$msg->get_topic(), json_encode($msg->get_data())])
+            ->withArgs([$msg->getTopic(), json_encode($msg->getData())])
             ->andReturn(function() use ($msg) {
                 if(!$msg) {
                     throw new RedisException();
@@ -32,14 +32,19 @@ class FooBarMessage implements TestOnly, Ntb\QueueAdapter\IMessage {
     /**
      * @return array
      */
-    function get_data() {
+    function getData() {
         return ["foo" => 1, "bar" => 2];
     }
 
     /**
      * @return string
      */
-    function get_topic() {
+    function getTopic() {
         return "foobar";
     }
+
+    /**
+     * @param array $data
+     */
+    function setData($data) {}
 }

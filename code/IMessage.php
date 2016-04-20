@@ -3,13 +3,18 @@
 namespace Ntb\QueueAdapter;
 
 interface IMessage {
-  /**
-  * @return array
-  */
-  function get_data();
+    /**
+    * @return array
+    */
+    function getData();
 
-  /**
-  * @return string
-  */
-  function get_topic();
+    /**
+    * @return string
+    */
+    function getTopic();
+
+    /**
+    * @param array $data
+    */
+    function setData($data);
 }

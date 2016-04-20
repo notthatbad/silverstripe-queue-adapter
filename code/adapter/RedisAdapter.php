@@ -4,7 +4,7 @@ namespace Ntb\QueueAdapter;
 use RedisException;
 
 /**
- * Message queue adapter for redis
+ * ANotificationMessage queue adapter for redis
  * @author Eduard Malyj <eduard.malyj@gmail.com>
  */
 class RedisAdapter implements IQueueAdapter{
@@ -49,8 +49,8 @@ class RedisAdapter implements IQueueAdapter{
      * @param IMessage $msg The message which should be published
      */
     public function publish($msg) {
-        $queue = $msg->get_topic();
-        $serializedData = QueueHelper::get_serializer()->serialize($msg->get_data());
+        $queue = $msg->getTopic();
+        $serializedData = QueueHelper::get_serializer()->serialize($msg->getData());
         try {
             $this->_redis->rpush($queue, $serializedData);
         } catch(RedisException $ex) {
@@ -69,6 +69,7 @@ class RedisAdapter implements IQueueAdapter{
         } catch(RedisException $ex) {
             \SS_Log::log("Can't read data from redis queue.", \SS_Log::ERR);
         }
+        return false;
     }
 
     /**
@@ -76,5 +77,29 @@ class RedisAdapter implements IQueueAdapter{
      */
     public function clear($queue) {
         $this->_redis->del($queue);
+    }
+
+    /**
+     * Reads data from a queue and stores the data into a given message. The message will be returned. If an error
+     * occurred or no data is provided, the method returns FALSE.
+     *
+     * @param IMessage $message the message without data
+     * @return IMessage|bool the filled message object
+     */
+    function readInto($message) {
+        $queue = $message->getTopic();
+        try {
+            $serializedData = $this->_redis->lpop($queue);
+            $deserialized = QueueHelper::get_serializer()->deserialize($serializedData);
+            if($deserialized) {
+                $message->setData($deserialized);
+                return $message;
+            }
+        } catch(RedisException $ex) {
+            \SS_Log::log("Can't read data from redis queue.", \SS_Log::ERR);
+        } catch(\Exception $ex) {
+            \SS_Log::log("Can't deserialize the data", \SS_Log::WARN);
+        }
+        return false;
     }
 }
